@@ -1,294 +1,723 @@
-
-<h2 class="sr-only">NWT 2.0 MERL operational plan, cleaned version for stakeholders</h2>
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>НПП 2.0 — MERL план · Година 1</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-.w{font-family:var(--font-sans);font-size:14px;color:var(--color-text-primary);padding:1.5rem 0 1rem}
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 16px;font-size:11px;color:var(--color-text-secondary)}
-.legend span{display:flex;align-items:center;gap:4px}
-.ld{width:8px;height:8px;border-radius:2px}
-.grid{display:grid;grid-template-columns:124px repeat(12,1fr);gap:0;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
-.mh{background:var(--color-background-secondary);font-size:10px;font-weight:500;text-align:center;padding:6px 2px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary);border-right:0.5px solid var(--color-border-tertiary)}
-.mh:last-child{border-right:none}
-.mh.corner{text-align:left;padding-left:10px;font-size:11px;color:var(--color-text-primary)}
-.phase-row{display:contents}
-.ph{font-size:9px;font-weight:500;text-align:center;padding:5px 2px;border-bottom:0.5px solid var(--color-border-tertiary);border-right:0.5px solid var(--color-border-tertiary);line-height:1.3}
-.ph:last-child{border-right:none}
-.ph.lbl{background:var(--color-background-secondary);text-align:left;padding-left:10px;font-size:10px;color:var(--color-text-secondary)}
-.ph.li{background:#EEEDFE;color:#3C3489;grid-column:span 2}
-.ph.t1{background:#E6F1FB;color:#0C447C;grid-column:span 5}
-.ph.t2{background:#E1F5EE;color:#085041;grid-column:span 5}
-@media(prefers-color-scheme:dark){
-.ph.li{background:#26215C;color:#CECBF6}
-.ph.t1{background:#042C53;color:#B5D4F4}
-.ph.t2{background:#04342C;color:#9FE1CB}
+:root {
+  --bg: #FAFAF8;
+  --bg2: #F3F2EE;
+  --bg3: #EBEAE5;
+  --text: #1A1A18;
+  --text2: #6B6A65;
+  --text3: #9C9B95;
+  --border: #E0DFDA;
+  --border2: #D0CFC9;
+  --green: #1B7A5A;
+  --green-bg: #E6F4EE;
+  --green-t: #0A5C40;
+  --amber: #A96B00;
+  --amber-bg: #FFF3DB;
+  --amber-t: #7A4D00;
+  --purple: #5B4FC7;
+  --purple-bg: #EEEDFE;
+  --purple-t: #3C3489;
+  --coral: #C4501C;
+  --coral-bg: #FDE8DE;
+  --coral-t: #8B3510;
+  --blue: #2563EB;
+  --blue-bg: #EFF4FF;
+  --blue-t: #1D4ED8;
+  --peach: #B8502A;
+  --peach-bg: #FFF0E8;
+  --peach-t: #8B3E18;
+  --gray-bg: #F1EFE8;
+  --gray-t: #555550;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
 }
-.irow{display:contents;cursor:pointer}
-.irow:hover .rlbl,.irow:hover .cell{background:var(--color-background-secondary)}
-.rlbl{font-size:11px;padding:5px 6px;border-bottom:0.5px solid var(--color-border-tertiary);border-right:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;line-height:1.3;transition:background .1s;gap:4px}
-.cell{padding:2px 1px;border-bottom:0.5px solid var(--color-border-tertiary);border-right:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;justify-content:center;min-height:30px;transition:background .1s}
-.cell:last-child{border-right:none}
-.dot{min-width:16px;height:18px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:500;padding:0 3px}
-.bar{width:100%;height:10px;border-radius:0}
-.sa{background:#E1F5EE;color:#085041}
-.sb{background:#FAEEDA;color:#633806}
-.sc{background:#EEEDFE;color:#3C3489}
-.ucf{background:#FAECE7;color:#712B13}
-.ops{background:#F1EFE8;color:#444441}
-@media(prefers-color-scheme:dark){
-.sa{background:#085041;color:#9FE1CB}
-.sb{background:#854F0B;color:#FAC775}
-.sc{background:#3C3489;color:#CECBF6}
-.ucf{background:#993C1D;color:#F5C4B3}
-.ops{background:#5F5E5A;color:#D3D1C7}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --bg2: #1E1E1C;
+    --bg3: #282826;
+    --text: #E8E7E3;
+    --text2: #9A9990;
+    --text3: #6B6A65;
+    --border: #333330;
+    --border2: #444440;
+    --green-bg: #0A3D2E;
+    --green-t: #7ECBAA;
+    --amber-bg: #3D2E00;
+    --amber-t: #F0C050;
+    --purple-bg: #26215C;
+    --purple-t: #BFBAEF;
+    --coral-bg: #3D1A08;
+    --coral-t: #F0997B;
+    --blue-bg: #1A2E4A;
+    --blue-t: #8BB4E8;
+    --peach-bg: #3D1F0A;
+    --peach-t: #F0997B;
+    --gray-bg: #2A2A26;
+    --gray-t: #B4B2A9;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
+  }
 }
-.sec{grid-column:1/-1;font-size:11px;font-weight:500;padding:7px 10px;background:var(--color-background-secondary);border-bottom:0.5px solid var(--color-border-secondary);color:var(--color-text-secondary)}
-.dp{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 18px;margin:10px 0;font-size:13px;line-height:1.7;display:none}
-.dp.show{display:block}
-.dp .dh{font-weight:500;font-size:14px;margin-bottom:4px}
-.dp .dl{font-size:12px;color:var(--color-text-secondary);margin-bottom:8px}
-.dp table{width:100%;font-size:12px;border-collapse:collapse;margin:6px 0}
-.dp td{padding:4px 8px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:top}
-.dp td:first-child{font-weight:500;width:110px;color:var(--color-text-secondary)}
-.cls{font-size:11px;color:var(--color-text-tertiary);cursor:pointer;float:right}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 40px;
+}
+
+.header-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.header .version {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text3);
+  background: var(--bg2);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.header p {
+  color: var(--text2);
+  font-size: 15px;
+  max-width: 600px;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding: 12px 16px;
+  background: var(--bg2);
+  border-radius: var(--radius);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+/* Grid */
+.plan-grid {
+  display: grid;
+  grid-template-columns: 156px repeat(12, 1fr);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--bg);
+}
+
+.col-header {
+  background: var(--bg2);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px 2px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.col-header:last-child { border-right: none; }
+
+.col-header.corner {
+  text-align: left;
+  padding-left: 16px;
+  font-size: 11px;
+  color: var(--text);
+  letter-spacing: 0.3px;
+}
+
+/* Phase row */
+.phase-row { display: contents; }
+
+.phase-cell {
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  letter-spacing: 0.3px;
+}
+
+.phase-cell:last-child { border-right: none; }
+
+.phase-label {
+  background: var(--bg2);
+  text-align: left;
+  padding-left: 16px;
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 500;
+}
+
+.phase-li { background: var(--purple-bg); color: var(--purple-t); grid-column: span 2; }
+.phase-t1 { background: var(--blue-bg); color: var(--blue-t); grid-column: span 5; }
+.phase-t2 { background: var(--green-bg); color: var(--green-t); grid-column: span 5; }
+
+/* Section headers */
+.section {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 16px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  letter-spacing: 0.2px;
+}
+
+/* Instrument rows */
+.irow { display: contents; cursor: pointer; }
+
+.irow:hover .row-label,
+.irow:hover .cell {
+  background: var(--bg2);
+}
+
+.row-label {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 12px 8px 16px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+  line-height: 1.3;
+}
+
+.cell {
+  padding: 4px 2px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  transition: background 0.15s;
+}
+
+.cell:last-child { border-right: none; }
+
+.cell2 {
+  grid-column: span 2;
+  padding: 4px 2px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  transition: background 0.15s;
+}
+
+/* Markers */
+.marker {
+  min-width: 18px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0 4px;
+  letter-spacing: 0;
+}
+
+.wide-marker {
+  min-width: 34px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0 5px;
+}
+
+.m-green { background: var(--green-bg); color: var(--green-t); }
+.m-amber { background: var(--amber-bg); color: var(--amber-t); }
+.m-purple { background: var(--purple-bg); color: var(--purple-t); }
+.m-coral { background: var(--coral-bg); color: var(--coral-t); }
+.m-blue { background: var(--blue-bg); color: var(--blue-t); }
+.m-peach { background: var(--peach-bg); color: var(--peach-t); }
+.m-gray { background: var(--gray-bg); color: var(--gray-t); }
+.m-opt { opacity: 0.55; }
+
+.bar-ops {
+  width: 100%;
+  height: 6px;
+  background: var(--gray-bg);
+  border-radius: 0;
+}
+
+/* Detail panels */
+.detail {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 12px 0 4px;
+  display: none;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.2s ease;
+}
+
+.detail.show { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.detail h3 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.detail .meta {
+  font-size: 13px;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+
+.close-btn {
+  font-size: 12px;
+  color: var(--text3);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.close-btn:hover { background: var(--bg3); }
+
+.detail table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+
+.detail td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.detail td:first-child {
+  font-weight: 500;
+  width: 120px;
+  color: var(--text2);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.detail tr:last-child td { border-bottom: none; }
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: var(--bg2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text2);
+}
+
+.footer strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 20px 12px 40px; }
+  .header h1 { font-size: 22px; }
+  .plan-grid { grid-template-columns: 110px repeat(12, 1fr); font-size: 10px; }
+  .row-label { font-size: 11px; padding: 6px 8px; }
+  .col-header { font-size: 9px; padding: 8px 1px; }
+  .legend { gap: 10px; }
+}
 </style>
-<div class="w">
-<div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:4px">Нов път в преподаването 2.0 — Година 1</div>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-top">
+    <h1>НПП 2.0 — MERL план</h1>
+    <span class="version">Година 1 · v1.0</span>
+  </div>
+  <p>Нов път в преподаването — мониторинг, оценка, изследване и учене</p>
+</div>
 
 <div class="legend">
-<span><span class="ld" style="background:#5DCAA5"></span>Stream A — отчетност</span>
-<span><span class="ld" style="background:#EF9F27"></span>Stream B — подобряване</span>
-<span><span class="ld" style="background:#AFA9EC"></span>Stream C — развитие</span>
-<span><span class="ld" style="background:#F0997B"></span>UCF / TFAll</span>
-<span><span class="ld" style="background:#B4B2A9"></span>Оперативно</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#1B7A5A"></span>Stream A — отчетност</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#A96B00"></span>Stream B — подобряване</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#5B4FC7"></span>Stream C — развитие</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#C4501C"></span>UCF / TFAll</span>
+  <span class="legend-item"><span class="legend-dot" style="background:#888883"></span>Оперативно</span>
 </div>
 
-<div class="grid">
-<div class="mh corner">Инструмент</div>
-<div class="mh">юли</div><div class="mh">авг</div>
-<div class="mh">сеп</div><div class="mh">окт</div><div class="mh">ное</div><div class="mh">дек</div><div class="mh">яну</div>
-<div class="mh">фев</div><div class="mh">мар</div><div class="mh">апр</div><div class="mh">май</div><div class="mh">юни</div>
+<div class="plan-grid">
+  <div class="col-header corner">Инструмент</div>
+  <div class="col-header">юли</div><div class="col-header">авг</div>
+  <div class="col-header">сеп</div><div class="col-header">окт</div><div class="col-header">ное</div><div class="col-header">дек</div><div class="col-header">яну</div>
+  <div class="col-header">фев</div><div class="col-header">мар</div><div class="col-header">апр</div><div class="col-header">май</div><div class="col-header">юни</div>
 
-<div class="phase-row">
-<div class="ph lbl">Фаза</div>
-<div class="ph li">ПИ / ЛИ / ЛА</div>
-<div class="ph t1">Срок 1</div>
-<div class="ph t2">Срок 2</div>
+  <div class="phase-row">
+    <div class="phase-cell phase-label">Фаза</div>
+    <div class="phase-cell phase-li">ПИ / ЛИ / ЛА</div>
+    <div class="phase-cell phase-t1">Срок 1</div>
+    <div class="phase-cell phase-t2">Срок 2</div>
+  </div>
+
+  <div class="section">Учителско ниво — MERL инструменти</div>
+
+  <div class="irow" onclick="toggle('d1')">
+    <div class="row-label">Пулс чек</div>
+    <div class="cell"></div>
+    <div class="cell"><div class="marker m-amber">ЛА</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-amber">С1</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-amber">С2</div></div>
+    <div class="cell"><div class="marker m-green">FIN</div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d2')">
+    <div class="row-label">VPS самооценка</div>
+    <div class="cell"></div>
+    <div class="cell"><div class="marker m-purple">BASE</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-purple">PE 1</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-green">PE 2</div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d3')">
+    <div class="row-label">Наблюдение на урок</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"><div class="marker m-purple">#1</div></div>
+    <div class="cell"><div class="marker m-purple">#2</div></div>
+    <div class="cell" style="grid-column:span 2"><div class="marker m-green">#3</div></div>
+    <div class="cell"></div>
+    <div class="cell"><div class="marker m-purple">#4</div></div>
+    <div class="cell"><div class="marker m-purple">#5</div></div>
+    <div class="cell"><div class="marker m-green m-opt">#6?</div></div>
+    <div class="cell"></div>
+  </div>
+
+  <div class="section">Учителско ниво — програмни структури</div>
+
+  <div class="irow" onclick="toggle('d4')">
+    <div class="row-label">Групова рефлексия</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-blue">#1</div></div>
+    <div class="cell"><div class="marker m-blue">#2</div></div>
+    <div class="cell"><div class="marker m-blue">#3</div></div>
+    <div class="cell" style="grid-column:span 2"><div class="marker m-blue">#4</div></div>
+    <div class="cell"><div class="marker m-blue">#5</div></div>
+    <div class="cell"><div class="marker m-blue">#6</div></div>
+    <div class="cell"><div class="marker m-blue">#7</div></div>
+    <div class="cell"><div class="marker m-blue">#8</div></div>
+    <div class="cell"></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d5')">
+    <div class="row-label">PE разговори</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-peach">PE 1</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-peach">PE 2</div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d6')">
+    <div class="row-label">Финална рефлексия</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-blue">FIN</div></div>
+  </div>
+
+  <div class="section">Ученическо ниво (един определен клас на учител)</div>
+
+  <div class="irow" onclick="toggle('d7')">
+    <div class="row-label">Четивна грамотност</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-green">PRE</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell2"><div class="wide-marker m-green">POST</div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d8')">
+    <div class="row-label">СРУ + самоефикасност</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-green">PRE</div></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell2"><div class="wide-marker m-green">POST</div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d9')">
+    <div class="row-label">7C анкета</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-green">PRE</div></div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell2"><div class="wide-marker m-green">POST</div></div>
+  </div>
+
+  <div class="section">Програмно ниво</div>
+
+  <div class="irow" onclick="toggle('d10')">
+    <div class="row-label">Оперативни KPI</div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+    <div class="cell"><div class="bar-ops"></div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d11')">
+    <div class="row-label">UCF / TFAll отчет</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-coral">U</div></div>
+  </div>
+
+  <div class="irow" onclick="toggle('d12')">
+    <div class="row-label">Алумни анкета</div>
+    <div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    <div class="cell"><div class="marker m-green">A</div></div>
+  </div>
 </div>
 
-<div class="sec"><i class="ti ti-user" style="font-size:12px;margin-right:4px" aria-hidden="true"></i> Учителско ниво</div>
-
-<div class="irow" onclick="show('p1')">
-<div class="rlbl">Пулс чек</div>
-<div class="cell"></div>
-<div class="cell"><div class="dot sb" style="font-size:7px">ЛА</div></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sb" style="font-size:7px">С1</div></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sb" style="font-size:7px">С2</div></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">FIN</div></div>
+<!-- Detail panels -->
+<div class="detail" id="d1">
+  <div class="detail-header"><h3>Пулс чек</h3><button class="close-btn" onclick="hide('d1')">затвори ✕</button></div>
+  <div class="meta">26 въпроса · ~8 мин · попълва се от участника</div>
+  <table>
+    <tr><td>Съдържание</td><td>TSES самоефективност (12) · Менторска връзка (5, анонимно) · Принадлежност и контекст (7) · Подкрепа + NPS (2)</td></tr>
+    <tr><td>Честота</td><td>Край на ЛА (август) · Край на Срок 1 (януари) · Край на Срок 2 (май) · Финален сумативен (юни)</td></tr>
+    <tr><td>Решения</td><td>Ранно предупреждение за напускане. Редизайн на подкрепа. NPS → UCF #4.</td></tr>
+  </table>
 </div>
 
-<div class="irow" onclick="show('p2')">
-<div class="rlbl">VPS самооценка</div>
-<div class="cell"></div>
-<div class="cell"><div class="dot sc" style="font-size:7px">BASE</div></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sc" style="font-size:7px">PE 1</div></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">PE 2</div></div>
+<div class="detail" id="d2">
+  <div class="detail-header"><h3>VPS самооценка по компетентностен модел</h3><button class="close-btn" onclick="hide('d2')">затвори ✕</button></div>
+  <div class="meta">Домейни A–D · 14 компетенции · 4 нива · ~20 мин · учител + координатор независимо</div>
+  <table>
+    <tr><td>Baseline</td><td>Август (край на ЛА)</td></tr>
+    <tr><td>PE 1</td><td>Февруари → PE разговор (2 часа)</td></tr>
+    <tr><td>PE 2</td><td>Юни → PE разговор (3 часа)</td></tr>
+    <tr><td>Решения</td><td>Индивидуален план за развитие. Кохортни приоритети. Годишен прогрес.</td></tr>
+  </table>
 </div>
 
-<div class="irow" onclick="show('p3')">
-<div class="rlbl">Наблюдение на урок</div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"></div>
-<div class="cell"><div class="dot sc" style="font-size:0;width:6px;height:6px;border-radius:50%"></div></div>
-<div class="cell"><div class="dot sc" style="font-size:0;width:6px;height:6px;border-radius:50%"></div></div>
-<div class="cell"><div class="dot sa" style="font-size:0;width:6px;height:6px;border-radius:50%"></div></div>
-<div class="cell"></div>
-<div class="cell"><div class="dot sc" style="font-size:0;width:6px;height:6px;border-radius:50%"></div></div>
-<div class="cell"><div class="dot sc" style="font-size:0;width:6px;height:6px;border-radius:50%"></div></div>
-<div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:0;width:6px;height:6px;border-radius:50%"></div></div>
-<div class="cell"></div>
+<div class="detail" id="d3">
+  <div class="detail-header"><h3>Наблюдение на урок</h3><button class="close-btn" onclick="hide('d3')">затвори ✕</button></div>
+  <div class="meta">13 индикатора · ICAP моментна проверка · скала 0–3 · ~3 часа на наблюдение</div>
+  <table>
+    <tr><td>Честота</td><td>6 наблюдения (6-то опционално): #1 окт · #2 ное · #3 дек/яну · #4 мар · #5 апр · #6 май (опц.)</td></tr>
+    <tr><td>Решения</td><td>Какво учителят упражнява в следващия цикъл. Данни за PE разговорите. Кохортен напредък.</td></tr>
+  </table>
 </div>
 
-<div class="sec"><i class="ti ti-users" style="font-size:12px;margin-right:4px" aria-hidden="true"></i> Ученическо ниво (един определен клас на учител)</div>
-
-<div class="irow" onclick="show('p4')">
-<div class="rlbl">Четивна грамотност</div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">PRE</div></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">POST</div></div>
-<div class="cell"></div>
+<div class="detail" id="d4">
+  <div class="detail-header"><h3>Групова рефлексия</h3><button class="close-btn" onclick="hide('d4')">затвори ✕</button></div>
+  <div class="meta">~1 час · месечна · 8 пъти годишно (сеп–май)</div>
+  <table>
+    <tr><td>Формат</td><td>Групова среща с координатор — споделяне на опит, рефлексия по учебна практика</td></tr>
+  </table>
 </div>
 
-<div class="irow" onclick="show('p5')">
-<div class="rlbl">СРУ + самоефикасност</div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">PRE</div></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">POST</div></div>
-<div class="cell"></div>
+<div class="detail" id="d5">
+  <div class="detail-header"><h3>PE разговори (Performance Evaluation)</h3><button class="close-btn" onclick="hide('d5')">затвори ✕</button></div>
+  <div class="meta">PE 1: ~2 часа (февруари) · PE 2: ~3 часа (юни)</div>
+  <table>
+    <tr><td>Основа</td><td>VPS самооценка (учител + координатор независимо) + данни от наблюдения</td></tr>
+    <tr><td>PE 1</td><td>Февруари — средносрочна оценка, коригиране на целите</td></tr>
+    <tr><td>PE 2</td><td>Юни — финална оценка, годишен прогрес, планиране на Година 2</td></tr>
+  </table>
 </div>
 
-<div class="irow" onclick="show('p6')">
-<div class="rlbl">7C анкета</div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">PRE</div></div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa" style="font-size:7px">POST</div></div>
-<div class="cell"></div>
+<div class="detail" id="d6">
+  <div class="detail-header"><h3>Финална рефлексия</h3><button class="close-btn" onclick="hide('d6')">затвори ✕</button></div>
+  <div class="meta">~8 часа · юни · еднократно</div>
+  <table>
+    <tr><td>Формат</td><td>Цялостна рефлексия за годината — индивидуална и групова</td></tr>
+  </table>
 </div>
 
-<div class="sec"><i class="ti ti-chart-bar" style="font-size:12px;margin-right:4px" aria-hidden="true"></i> Програмно ниво</div>
-
-<div class="irow" onclick="show('p7')">
-<div class="rlbl">Оперативни KPI</div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
-<div class="cell"><div class="bar ops"></div></div>
+<div class="detail" id="d7">
+  <div class="detail-header"><h3>Четивна грамотност — стандартизирани задачи</h3><button class="close-btn" onclick="hide('d7')">затвори ✕</button></div>
+  <div class="meta">По класове (5, 6, 7 клас) · ~30 мин · отделен учебен час</div>
+  <table>
+    <tr><td>Дизайн</td><td>PRE (септември) – POST (май–юни). Един определен клас на учител.</td></tr>
+    <tr><td>UCF</td><td>Индикатор #1: стандартизиран ефект размер на академична оценка</td></tr>
+    <tr><td>Обхват</td><td>Учители по БЕЛ и хуманитарни. За останалите: училищни оценки + НВО.</td></tr>
+  </table>
 </div>
 
-<div class="irow" onclick="show('p8')">
-<div class="rlbl">UCF / TFAll отчет</div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot ucf">U</div></div>
+<div class="detail" id="d8">
+  <div class="detail-header"><h3>СРУ + самоефикасност — ученическа анкета</h3><button class="close-btn" onclick="hide('d8')">затвори ✕</button></div>
+  <div class="meta">~34 въпроса · ~12 мин · попълва се от учениците</div>
+  <table>
+    <tr><td>Дизайн</td><td>PRE (септември) – POST (май–юни). Същият определен клас.</td></tr>
+    <tr><td>Скали</td><td>Метакогнитивни стратегии (12) · Сътрудничество (3) · Декодиране/запаметяване (3) · Търсене/организиране (4) · Задълбочено разбиране (7) · Самоефикасност (~5)</td></tr>
+    <tr><td>UCF</td><td>Индикатор #2: стандартизиран ефект размер на неакадемична оценка</td></tr>
+  </table>
 </div>
 
-<div class="irow" onclick="show('p9')">
-<div class="rlbl">Алумни анкета</div>
-<div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-<div class="cell"><div class="dot sa">A</div></div>
-</div>
-</div>
-
-<div class="dp" id="p1">
-<span class="cls" onclick="hide('p1')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">Пулс чек</div>
-<div class="dl">26 въпроса · ~8 мин · попълва се от участника</div>
-<table>
-<tr><td>Съдържание</td><td>TSES самоефективност (12) · Менторска връзка (5, анонимно) · Принадлежност и контекст (7) · Подкрепа + NPS (2)</td></tr>
-<tr><td>Честота</td><td>Край на ЛА (август) · Край на Срок 1 (януари) · Край на Срок 2 (май) · Финален сумативен (юни)</td></tr>
-<tr><td>Решения</td><td>Ранно предупреждение за напускане (Q21). Редизайн на подкрепа (Q25). NPS → UCF #4.</td></tr>
-</table>
+<div class="detail" id="d9">
+  <div class="detail-header"><h3>7C ученическа анкета</h3><button class="close-btn" onclick="hide('d9')">затвори ✕</button></div>
+  <div class="meta">Всички 7 субскали · ~35 въпроса · ~10 мин · попълва се от учениците</div>
+  <table>
+    <tr><td>Дизайн</td><td>PRE (ноември) – POST (май–юни). Същият определен клас.</td></tr>
+    <tr><td>Субскали</td><td>Challenge · Clarify · Consolidate · Care · Captivate · Control · Confer</td></tr>
+    <tr><td>UCF</td><td>Индикатор #3: % благоприятно ученическо възприятие + ефект размер по кохорта</td></tr>
+  </table>
 </div>
 
-<div class="dp" id="p2">
-<span class="cls" onclick="hide('p2')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">VPS самооценка по компетентностен модел</div>
-<div class="dl">Домейни A–D · 14 компетенции · 4 нива · ~20 мин · учител + координатор независимо</div>
-<table>
-<tr><td>Baseline</td><td>Август (край на ЛА)</td></tr>
-<tr><td>PE 1</td><td>Януари (край на Срок 1) → PE разговор</td></tr>
-<tr><td>PE 2</td><td>Юни (край на Срок 2) → PE разговор</td></tr>
-<tr><td>Решения</td><td>Индивидуален план за развитие. Кохортни приоритети. Годишен прогрес.</td></tr>
-</table>
+<div class="detail" id="d10">
+  <div class="detail-header"><h3>Оперативни KPI</h3><button class="close-btn" onclick="hide('d10')">затвори ✕</button></div>
+  <div class="meta">Непрекъснато · жълт/червен праг за всеки индикатор</div>
+  <table>
+    <tr><td>Месечно</td><td>Присъственост, watch list</td></tr>
+    <tr><td>Тримесечно</td><td>Retention, бюджетно отклонение, cost per participant</td></tr>
+    <tr><td>Годишно</td><td>Кандидатури, ЛИ→Срок 1 преход, completion rate, % училища под 67-и персентил</td></tr>
+  </table>
 </div>
 
-<div class="dp" id="p3">
-<span class="cls" onclick="hide('p3')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">Наблюдение на урок</div>
-<div class="dl">13 индикатора · ICAP моментна проверка · скала 0–3</div>
-<table>
-<tr><td>Честота</td><td>~5 наблюдения/година. Ориентировъчно: окт, ное, дек (сумативно), фев, мар + май (сумативно).</td></tr>
-<tr><td>Решения</td><td>Какво учителят упражнява в следващия цикъл. Кохортен напредък. Ефективност на програмата.</td></tr>
-</table>
+<div class="detail" id="d11">
+  <div class="detail-header"><h3>UCF / TFAll годишен отчет — 6 индикатора</h3><button class="close-btn" onclick="hide('d11')">затвори ✕</button></div>
+  <div class="meta">Подава се юни</div>
+  <table>
+    <tr><td>#1 Академичен</td><td>Ефект размер: четивна грамотност PRE→POST</td></tr>
+    <tr><td>#2 Неакадемичен</td><td>Ефект размер: СРУ + самоефикасност PRE→POST</td></tr>
+    <tr><td>#3 Преподаване</td><td>% благоприятно възприятие: 7C анкета</td></tr>
+    <tr><td>#4 Програма</td><td>NPS от Пулс чек</td></tr>
+    <tr><td>#5 Алумни</td><td>% алумни в образованието</td></tr>
+    <tr><td>#6 Общност</td><td>Планирано за Година 2</td></tr>
+  </table>
 </div>
 
-<div class="dp" id="p4">
-<span class="cls" onclick="hide('p4')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">Четивна грамотност — стандартизирани задачи</div>
-<div class="dl">По класове (5, 6, 7 клас) · ~30 мин · отделен учебен час</div>
-<table>
-<tr><td>Дизайн</td><td>PRE (септември) – POST (май). Един определен клас на учител.</td></tr>
-<tr><td>UCF</td><td>Индикатор #1: стандартизиран ефект размер на академична оценка</td></tr>
-<tr><td>Обхват</td><td>Учители по БЕЛ и хуманитарни. За останалите: училищни оценки + НВО.</td></tr>
-</table>
+<div class="detail" id="d12">
+  <div class="detail-header"><h3>Алумни анкета</h3><button class="close-btn" onclick="hide('d12')">затвори ✕</button></div>
+  <div class="meta">Годишна · всички завършили програмата</div>
+  <table>
+    <tr><td>Съдържание</td><td>Професионална траектория, работа в образованието, системно влияние, ангажираност</td></tr>
+    <tr><td>UCF</td><td>Индикатор #5: % алумни в образование или мисия-свързана работа</td></tr>
+  </table>
 </div>
 
-<div class="dp" id="p5">
-<span class="cls" onclick="hide('p5')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">СРУ + самоефикасност — ученическа анкета</div>
-<div class="dl">~34 въпроса · ~12 мин · попълва се от учениците</div>
-<table>
-<tr><td>Дизайн</td><td>PRE (септември) – POST (май). Същият определен клас.</td></tr>
-<tr><td>Скали</td><td>Метакогнитивни стратегии (12) · Сътрудничество (3) · Декодиране/запаметяване (3) · Търсене/организиране (4) · Задълбочено разбиране (7) · Самоефикасност (~5)</td></tr>
-<tr><td>UCF</td><td>Индикатор #2: стандартизиран ефект размер на неакадемична оценка</td></tr>
-</table>
+<div class="footer">
+  <strong>Ученически прозорци:</strong> PRE септември: четивна грамотност (1 час) + СРУ анкета (1 час). PRE ноември: 7C анкета (1 час). POST май–юни: всички заедно (2–3 часа). Конкретният момент зависи от възрастта на учениците и училищния календар.
+  <br><strong>Определен клас:</strong> Учителят избира един клас в началото на Година 1 и не го променя.
+  <br><strong>PE разговори:</strong> Февруари (PE 1, ~2ч) и юни (PE 2, ~3ч). Базирани на VPS самооценка + наблюдения.
+  <br><strong>Наблюдения:</strong> 6 (шестото опционално). ~3 часа всяко (наблюдение + обратна връзка).
+  <br><strong>Групови рефлексии:</strong> 8 пъти годишно (сеп–май), ~1 час. + Финална рефлексия юни (~8 часа).
 </div>
 
-<div class="dp" id="p6">
-<span class="cls" onclick="hide('p6')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">7C ученическа анкета</div>
-<div class="dl">Всички 7 субскали · ~35 въпроса · ~10 мин · попълва се от учениците</div>
-<table>
-<tr><td>Дизайн</td><td>PRE (ноември) – POST (май). Същият определен клас.</td></tr>
-<tr><td>Субскали</td><td>Challenge · Clarify · Consolidate · Care · Captivate · Control · Confer</td></tr>
-<tr><td>UCF</td><td>Индикатор #3: % благоприятно ученическо възприятие + ефект размер по кохорта</td></tr>
-</table>
 </div>
 
-<div class="dp" id="p7">
-<span class="cls" onclick="hide('p7')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">Оперативни KPI</div>
-<div class="dl">Непрекъснато · жълт/червен праг за всеки индикатор</div>
-<table>
-<tr><td>Месечно</td><td>Присъственост, watch list</td></tr>
-<tr><td>Тримесечно</td><td>Retention, бюджетно отклонение, cost per participant</td></tr>
-<tr><td>Годишно</td><td>Кандидатури, ЛИ→Срок 1 преход, completion rate, % училища под 67-и персентил</td></tr>
-</table>
-</div>
-
-<div class="dp" id="p8">
-<span class="cls" onclick="hide('p8')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">UCF / TFAll годишен отчет — 6 индикатора</div>
-<div class="dl">Подава се юни</div>
-<table>
-<tr><td>#1 Академичен</td><td>Ефект размер: четивна грамотност PRE→POST</td></tr>
-<tr><td>#2 Неакадемичен</td><td>Ефект размер: СРУ + самоефикасност PRE→POST</td></tr>
-<tr><td>#3 Преподаване</td><td>% благоприятно възприятие: 7C анкета</td></tr>
-<tr><td>#4 Програма</td><td>NPS от Пулс чек</td></tr>
-<tr><td>#5 Алумни</td><td>% алумни в образованието</td></tr>
-<tr><td>#6 Общност</td><td>Планирано за Година 2</td></tr>
-</table>
-</div>
-
-<div class="dp" id="p9">
-<span class="cls" onclick="hide('p9')">затвори <i class="ti ti-x" style="font-size:11px" aria-hidden="true"></i></span>
-<div class="dh">Алумни анкета</div>
-<div class="dl">Годишна · всички завършили програмата</div>
-<table>
-<tr><td>Съдържание</td><td>Професионална траектория, работа в образованието, системно влияние, ангажираност</td></tr>
-<tr><td>UCF</td><td>Индикатор #5: % алумни в образование или мисия-свързана работа</td></tr>
-</table>
-</div>
-
-<div style="margin-top:14px;padding:12px 16px;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);font-size:12px;line-height:1.7;color:var(--color-text-secondary)">
-<span style="font-weight:500;color:var(--color-text-primary)">Ученически прозорци:</span> PRE септември: четивна грамотност (1 час) + СРУ анкета (1 час). PRE ноември: 7C анкета (1 час). POST май: всички заедно (2–3 часа). Общо: ~5 учебни часа/година.
-<br><span style="font-weight:500;color:var(--color-text-primary)">Определен клас:</span> Учителят избира един клас в началото на Година 1 и не го променя.
-<br><span style="font-weight:500;color:var(--color-text-primary)">PE разговори:</span> Януари (край на Срок 1) и юни (край на Срок 2). Базирани на VPS самооценка + наблюдения.
-</div>
-</div>
 <script>
-function show(id){document.querySelectorAll('.dp').forEach(d=>d.classList.remove('show'));document.getElementById(id).classList.add('show')}
-function hide(id){document.getElementById(id).classList.remove('show')}
+function toggle(id) {
+  const el = document.getElementById(id);
+  const wasOpen = el.classList.contains('show');
+  document.querySelectorAll('.detail').forEach(d => d.classList.remove('show'));
+  if (!wasOpen) {
+    el.classList.add('show');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+function hide(id) {
+  document.getElementById(id).classList.remove('show');
+}
 </script>
+</body>
+</html>
