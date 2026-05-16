@@ -6,417 +6,91 @@
 <title>НПП 2.0 — MERL план · Година 1</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #FAFAF8;
-  --bg2: #F3F2EE;
-  --bg3: #EBEAE5;
-  --text: #1A1A18;
-  --text2: #6B6A65;
-  --text3: #9C9B95;
-  --border: #E0DFDA;
-  --border2: #D0CFC9;
-  --green: #1B7A5A;
-  --green-bg: #E6F4EE;
-  --green-t: #0A5C40;
-  --amber: #A96B00;
-  --amber-bg: #FFF3DB;
-  --amber-t: #7A4D00;
-  --purple: #5B4FC7;
-  --purple-bg: #EEEDFE;
-  --purple-t: #3C3489;
-  --coral: #C4501C;
-  --coral-bg: #FDE8DE;
-  --coral-t: #8B3510;
-  --blue: #2563EB;
-  --blue-bg: #EFF4FF;
-  --blue-t: #1D4ED8;
-  --peach: #B8502A;
-  --peach-bg: #FFF0E8;
-  --peach-t: #8B3E18;
-  --gray-bg: #F1EFE8;
-  --gray-t: #555550;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141413;
-    --bg2: #1E1E1C;
-    --bg3: #282826;
-    --text: #E8E7E3;
-    --text2: #9A9990;
-    --text3: #6B6A65;
-    --border: #333330;
-    --border2: #444440;
-    --green-bg: #0A3D2E;
-    --green-t: #7ECBAA;
-    --amber-bg: #3D2E00;
-    --amber-t: #F0C050;
-    --purple-bg: #26215C;
-    --purple-t: #BFBAEF;
-    --coral-bg: #3D1A08;
-    --coral-t: #F0997B;
-    --blue-bg: #1A2E4A;
-    --blue-t: #8BB4E8;
-    --peach-bg: #3D1F0A;
-    --peach-t: #F0997B;
-    --gray-bg: #2A2A26;
-    --gray-t: #B4B2A9;
-    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.15);
-  }
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'DM Sans', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 40px 24px 60px;
-}
-
-/* Header */
-.header {
-  margin-bottom: 40px;
-}
-
-.header-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.header h1 {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-}
-
-.header .version {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--text3);
-  background: var(--bg2);
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-
-.header p {
-  color: var(--text2);
-  font-size: 15px;
-  max-width: 600px;
-}
-
-/* Legend */
-.legend {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-  padding: 12px 16px;
-  background: var(--bg2);
-  border-radius: var(--radius);
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text2);
-}
-
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-}
-
-/* Grid */
-.plan-grid {
-  display: grid;
-  grid-template-columns: 156px repeat(12, 1fr);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: var(--bg);
-}
-
-.col-header {
-  background: var(--bg2);
-  font-size: 11px;
-  font-weight: 500;
-  text-align: center;
-  padding: 10px 2px;
-  color: var(--text2);
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.col-header:last-child { border-right: none; }
-
-.col-header.corner {
-  text-align: left;
-  padding-left: 16px;
-  font-size: 11px;
-  color: var(--text);
-  letter-spacing: 0.3px;
-}
-
-/* Phase row */
-.phase-row { display: contents; }
-
-.phase-cell {
-  font-size: 10px;
-  font-weight: 600;
-  text-align: center;
-  padding: 8px 4px;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  letter-spacing: 0.3px;
-}
-
-.phase-cell:last-child { border-right: none; }
-
-.phase-label {
-  background: var(--bg2);
-  text-align: left;
-  padding-left: 16px;
-  font-size: 11px;
-  color: var(--text3);
-  font-weight: 500;
-}
-
-.phase-li { background: var(--purple-bg); color: var(--purple-t); grid-column: span 2; }
-.phase-t1 { background: var(--blue-bg); color: var(--blue-t); grid-column: span 5; }
-.phase-t2 { background: var(--green-bg); color: var(--green-t); grid-column: span 5; }
-
-/* Section headers */
-.section {
-  grid-column: 1 / -1;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 10px 16px;
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
-  color: var(--text2);
-  letter-spacing: 0.2px;
-}
-
-/* Instrument rows */
-.irow { display: contents; cursor: pointer; }
-
-.irow:hover .row-label,
-.irow:hover .cell {
-  background: var(--bg2);
-}
-
-.row-label {
-  font-size: 13px;
-  font-weight: 500;
-  padding: 8px 12px 8px 16px;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  transition: background 0.15s;
-  line-height: 1.3;
-}
-
-.cell {
-  padding: 4px 2px;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  transition: background 0.15s;
-}
-
-.cell:last-child { border-right: none; }
-
-.cell2 {
-  grid-column: span 2;
-  padding: 4px 2px;
-  border-bottom: 1px solid var(--border);
-  border-right: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  transition: background 0.15s;
-}
-
-/* Markers */
-.marker {
-  min-width: 18px;
-  height: 20px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8px;
-  font-weight: 600;
-  font-family: 'JetBrains Mono', monospace;
-  padding: 0 4px;
-  letter-spacing: 0;
-}
-
-.wide-marker {
-  min-width: 34px;
-  height: 20px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 8px;
-  font-weight: 600;
-  font-family: 'JetBrains Mono', monospace;
-  padding: 0 5px;
-}
-
-.m-green { background: var(--green-bg); color: var(--green-t); }
-.m-amber { background: var(--amber-bg); color: var(--amber-t); }
-.m-purple { background: var(--purple-bg); color: var(--purple-t); }
-.m-coral { background: var(--coral-bg); color: var(--coral-t); }
-.m-blue { background: var(--blue-bg); color: var(--blue-t); }
-.m-peach { background: var(--peach-bg); color: var(--peach-t); }
-.m-gray { background: var(--gray-bg); color: var(--gray-t); }
-.m-opt { opacity: 0.55; }
-
-.bar-ops {
-  width: 100%;
-  height: 6px;
-  background: var(--gray-bg);
-  border-radius: 0;
-}
+:root{--bg:#FAFAF8;--bg2:#F3F2EE;--bg3:#EBEAE5;--text:#1A1A18;--text2:#6B6A65;--text3:#9C9B95;--border:#E0DFDA;--border2:#D0CFC9;--green-bg:#E6F4EE;--green-t:#0A5C40;--amber-bg:#FFF3DB;--amber-t:#7A4D00;--purple-bg:#EEEDFE;--purple-t:#3C3489;--coral-bg:#FDE8DE;--coral-t:#8B3510;--blue-bg:#EFF4FF;--blue-t:#1D4ED8;--peach-bg:#FFF0E8;--peach-t:#8B3E18;--gray-bg:#F1EFE8;--gray-t:#555550;--wine-bg:#F5EBF0;--wine-t:#6B2F4A;--radius:10px;--radius-sm:6px;--shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.03)}
+@media(prefers-color-scheme:dark){:root{--bg:#141413;--bg2:#1E1E1C;--bg3:#282826;--text:#E8E7E3;--text2:#9A9990;--text3:#6B6A65;--border:#333330;--border2:#444440;--green-bg:#0A3D2E;--green-t:#7ECBAA;--amber-bg:#3D2E00;--amber-t:#F0C050;--purple-bg:#26215C;--purple-t:#BFBAEF;--coral-bg:#3D1A08;--coral-t:#F0997B;--blue-bg:#1A2E4A;--blue-t:#8BB4E8;--peach-bg:#3D1F0A;--peach-t:#F0997B;--gray-bg:#2A2A26;--gray-t:#B4B2A9;--wine-bg:#3A1A2A;--wine-t:#D8A0BF;--shadow:0 1px 3px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.15)}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px 60px}
+.header{margin-bottom:36px}
+.header-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.header h1{font-size:28px;font-weight:600;letter-spacing:-0.5px}
+.version{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text3);background:var(--bg2);padding:3px 10px;border-radius:20px}
+.header p{color:var(--text2);font-size:15px;max-width:600px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;padding:12px 16px;background:var(--bg2);border-radius:var(--radius)}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text2)}
+.legend-dot{width:10px;height:10px;border-radius:3px}
+.grid{display:grid;grid-template-columns:152px repeat(12,1fr);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--bg)}
+.ch{background:var(--bg2);font-size:11px;font-weight:500;text-align:center;padding:10px 2px;color:var(--text2);border-bottom:1px solid var(--border);border-right:1px solid var(--border);text-transform:uppercase;letter-spacing:.5px}
+.ch:last-child{border-right:none}
+.ch.corner{text-align:left;padding-left:16px;font-size:11px;color:var(--text);letter-spacing:.3px}
+.phase-row{display:contents}
+.pc{font-size:10px;font-weight:600;text-align:center;padding:8px 4px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);letter-spacing:.3px}
+.pc:last-child{border-right:none}
+.pc.lbl{background:var(--bg2);text-align:left;padding-left:16px;font-size:11px;color:var(--text3);font-weight:500}
+.pc.li{background:var(--purple-bg);color:var(--purple-t);grid-column:span 2}
+.pc.t1{background:var(--blue-bg);color:var(--blue-t);grid-column:span 5}
+.pc.t2{background:var(--green-bg);color:var(--green-t);grid-column:span 5}
+.sec{grid-column:1/-1;font-size:12px;font-weight:600;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);color:var(--text2);letter-spacing:.2px}
+.irow{display:contents;cursor:pointer}
+.irow:hover .rl,.irow:hover .cl{background:var(--bg2)}
+.rl{font-size:13px;font-weight:500;padding:8px 12px 8px 16px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);display:flex;align-items:center;transition:background .15s;line-height:1.3}
+.cl{padding:4px 2px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:38px;transition:background .15s}
+.cl:last-child{border-right:none}
+.cl2{grid-column:span 2;padding:4px 2px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-height:38px;transition:background .15s}
+.mk{min-width:18px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;font-family:'JetBrains Mono',monospace;padding:0 4px}
+.wk{min-width:34px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;font-family:'JetBrains Mono',monospace;padding:0 5px}
+.m-g{background:var(--green-bg);color:var(--green-t)}
+.m-a{background:var(--amber-bg);color:var(--amber-t)}
+.m-p{background:var(--purple-bg);color:var(--purple-t)}
+.m-c{background:var(--coral-bg);color:var(--coral-t)}
+.m-b{background:var(--blue-bg);color:var(--blue-t)}
+.m-pe{background:var(--peach-bg);color:var(--peach-t)}
+.m-o{background:var(--gray-bg);color:var(--gray-t)}
+.m-w{background:var(--wine-bg);color:var(--wine-t)}
+.m-opt{opacity:.55}
+.bar-o{width:100%;height:6px;background:var(--gray-bg)}
 
 /* Detail panels */
-.detail {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  margin: 12px 0 4px;
-  display: none;
-  box-shadow: var(--shadow);
-  animation: fadeIn 0.2s ease;
-}
+.dp{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:12px 0 4px;display:none;box-shadow:var(--shadow);animation:fadeIn .2s ease}
+.dp.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.dp-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.dp h3{font-size:16px;font-weight:600;letter-spacing:-.3px}
+.dp .meta{font-size:13px;color:var(--text2);margin-bottom:14px}
+.cbtn{font-size:12px;color:var(--text3);cursor:pointer;padding:4px 8px;border-radius:var(--radius-sm);transition:background .15s;border:none;background:none;font-family:inherit}
+.cbtn:hover{background:var(--bg3)}
+.dp table{width:100%;font-size:13px;border-collapse:collapse}
+.dp td{padding:6px 10px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.dp td:first-child{font-weight:500;width:120px;color:var(--text2);font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+.dp tr:last-child td{border-bottom:none}
 
-.detail.show { display: block; }
+/* Instrument tabs inside detail */
+.tabs{display:flex;gap:4px;margin:14px 0 0;border-bottom:1px solid var(--border);padding-bottom:0}
+.tab{font-size:12px;font-weight:500;padding:8px 14px;cursor:pointer;color:var(--text3);border-bottom:2px solid transparent;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.tab:hover{color:var(--text2)}
+.tab.active{color:var(--text);border-bottom-color:var(--text)}
+.tab-content{display:none;padding:14px 0 0;font-size:13px;line-height:1.6}
+.tab-content.show{display:block}
+.tab-content .q-list{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:12px;color:var(--text2);margin:8px 0}
+.tab-content .q-item{padding:4px 0;border-bottom:1px solid var(--border)}
+.tab-content .q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);margin-right:6px}
+.tab-content .scale-tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:500;margin-left:6px}
+.tab-content h4{font-size:13px;font-weight:600;margin:10px 0 4px;color:var(--text)}
+.tab-content .rubric{border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;margin:8px 0}
+.tab-content .rubric td{font-size:11px;padding:6px 8px;border-bottom:1px solid var(--border);border-right:1px solid var(--border)}
+.tab-content .rubric td:last-child{border-right:none}
+.tab-content .rubric tr:last-child td{border-bottom:none}
+.tab-content .rubric .r-head{background:var(--bg3);font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.3px;color:var(--text2)}
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.detail-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 4px;
-}
-
-.detail h3 {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-}
-
-.detail .meta {
-  font-size: 13px;
-  color: var(--text2);
-  margin-bottom: 14px;
-}
-
-.close-btn {
-  font-size: 12px;
-  color: var(--text3);
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-  transition: background 0.15s;
-  border: none;
-  background: none;
-  font-family: inherit;
-}
-
-.close-btn:hover { background: var(--bg3); }
-
-.detail table {
-  width: 100%;
-  font-size: 13px;
-  border-collapse: collapse;
-}
-
-.detail td {
-  padding: 6px 10px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-  line-height: 1.5;
-}
-
-.detail td:first-child {
-  font-weight: 500;
-  width: 120px;
-  color: var(--text2);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-
-.detail tr:last-child td { border-bottom: none; }
-
-/* Footer */
-.footer {
-  margin-top: 20px;
-  padding: 16px 20px;
-  background: var(--bg2);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--text2);
-}
-
-.footer strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .container { padding: 20px 12px 40px; }
-  .header h1 { font-size: 22px; }
-  .plan-grid { grid-template-columns: 110px repeat(12, 1fr); font-size: 10px; }
-  .row-label { font-size: 11px; padding: 6px 8px; }
-  .col-header { font-size: 9px; padding: 8px 1px; }
-  .legend { gap: 10px; }
-}
+.footer{margin-top:20px;padding:16px 20px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);font-size:13px;line-height:1.8;color:var(--text2)}
+.footer strong{color:var(--text);font-weight:500}
+@media(max-width:768px){.container{padding:20px 12px 40px}.header h1{font-size:22px}.grid{grid-template-columns:110px repeat(12,1fr)}.rl{font-size:11px;padding:6px 8px}.ch{font-size:9px;padding:8px 1px}}
 </style>
 </head>
 <body>
 <div class="container">
-
 <div class="header">
-  <div class="header-top">
-    <h1>НПП 2.0 — MERL план</h1>
-    <span class="version">Година 1 · v1.0</span>
-  </div>
+  <div class="header-top"><h1>НПП 2.0 — MERL план</h1><span class="version">Година 1 · v2.0</span></div>
   <p>Нов път в преподаването — мониторинг, оценка, изследване и учене</p>
 </div>
 
@@ -428,296 +102,293 @@ body {
   <span class="legend-item"><span class="legend-dot" style="background:#888883"></span>Оперативно</span>
 </div>
 
-<div class="plan-grid">
-  <div class="col-header corner">Инструмент</div>
-  <div class="col-header">юли</div><div class="col-header">авг</div>
-  <div class="col-header">сеп</div><div class="col-header">окт</div><div class="col-header">ное</div><div class="col-header">дек</div><div class="col-header">яну</div>
-  <div class="col-header">фев</div><div class="col-header">мар</div><div class="col-header">апр</div><div class="col-header">май</div><div class="col-header">юни</div>
+<div class="grid">
+  <div class="ch corner">Инструмент</div>
+  <div class="ch">юли</div><div class="ch">авг</div><div class="ch">сеп</div><div class="ch">окт</div><div class="ch">ное</div><div class="ch">дек</div><div class="ch">яну</div><div class="ch">фев</div><div class="ch">мар</div><div class="ch">апр</div><div class="ch">май</div><div class="ch">юни</div>
+  <div class="phase-row"><div class="pc lbl">Фаза</div><div class="pc li">ПИ / ЛИ / ЛА</div><div class="pc t1">Срок 1</div><div class="pc t2">Срок 2</div></div>
 
-  <div class="phase-row">
-    <div class="phase-cell phase-label">Фаза</div>
-    <div class="phase-cell phase-li">ПИ / ЛИ / ЛА</div>
-    <div class="phase-cell phase-t1">Срок 1</div>
-    <div class="phase-cell phase-t2">Срок 2</div>
+  <div class="sec">Учителско ниво — MERL инструменти</div>
+
+  <div class="irow" onclick="toggle('d1')"><div class="rl">Пулс чек</div><div class="cl"></div><div class="cl"><div class="mk m-a">ЛА</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-a">С1</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-g">С2</div></div></div>
+
+  <div class="irow" onclick="toggle('d2')"><div class="rl">VPS самооценка</div><div class="cl"></div><div class="cl"><div class="mk m-p">BASE</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-p">PE 1</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-g">PE 2</div></div></div>
+
+  <div class="irow" onclick="toggle('d3')"><div class="rl">Наблюдение на урок</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-p">#1</div></div><div class="cl"><div class="mk m-p">#2</div></div><div class="cl" style="grid-column:span 2"><div class="mk m-g">#3</div></div><div class="cl"></div><div class="cl"><div class="mk m-p">#4</div></div><div class="cl"><div class="mk m-p">#5</div></div><div class="cl"><div class="mk m-g m-opt">#6?</div></div><div class="cl"></div></div>
+
+  <div class="sec">Учителско ниво — програмни структури</div>
+
+  <div class="irow" onclick="toggle('d4')"><div class="rl">Групова рефлексия</div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-b">#1</div></div><div class="cl"><div class="mk m-b">#2</div></div><div class="cl"><div class="mk m-b">#3</div></div><div class="cl" style="grid-column:span 2"><div class="mk m-b">#4</div></div><div class="cl"><div class="mk m-b">#5</div></div><div class="cl"><div class="mk m-b">#6</div></div><div class="cl"><div class="mk m-b">#7</div></div><div class="cl"><div class="mk m-b">#8</div></div><div class="cl"></div></div>
+
+  <div class="irow" onclick="toggle('d5')"><div class="rl">PE разговори</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-pe">PE 1</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-pe">PE 2</div></div></div>
+
+  <div class="irow" onclick="toggle('d6f')"><div class="rl">Финална рефлексия</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-b">FIN</div></div></div>
+
+  <div class="sec">Ученическо ниво (един определен клас на учител)</div>
+
+  <div class="irow" onclick="toggle('d7')"><div class="rl">Четивна грамотност</div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-g">PRE</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl2"><div class="wk m-g">POST</div></div></div>
+
+  <div class="irow" onclick="toggle('d8')"><div class="rl">СРУ + самоефикасност</div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-g">PRE</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl2"><div class="wk m-g">POST</div></div></div>
+
+  <div class="irow" onclick="toggle('d9')"><div class="rl">7C анкета</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-g">PRE</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl2"><div class="wk m-g">POST</div></div></div>
+
+  <div class="sec">Програмно ниво</div>
+
+  <div class="irow" onclick="toggle('d10')"><div class="rl">Оперативни KPI</div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div><div class="cl"><div class="bar-o"></div></div></div>
+
+  <div class="irow" onclick="toggle('d11')"><div class="rl">Програмен анализ</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-w">SB 1</div></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-w">SB 2</div></div></div>
+
+  <div class="irow" onclick="toggle('d12')"><div class="rl">UCF / TFAll отчет</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-c">U</div></div></div>
+
+  <div class="irow" onclick="toggle('d13')"><div class="rl">Алумни анкета</div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"></div><div class="cl"><div class="mk m-g">A</div></div></div>
+</div>
+
+<!-- DETAIL: Пулс чек -->
+<div class="dp" id="d1">
+  <div class="dp-h"><h3>Пулс чек</h3><button class="cbtn" onclick="hide('d1')">затвори ✕</button></div>
+  <div class="meta">26 въпроса · ~8 мин · попълва се от участника · 3 администрации годишно</div>
+  <table><tr><td>Честота</td><td>Край на ЛА (август) · Край на Срок 1 (януари) · Край на Срок 2 (май/юни, включва TFAll модул)</td></tr><tr><td>Решения</td><td>Ранно предупреждение за напускане. Редизайн на подкрепа. NPS → UCF #4.</td></tr></table>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(this,'d1-info')">Обзор</button>
+    <button class="tab" onclick="showTab(this,'d1-items')">Въпроси</button>
   </div>
-
-  <div class="section">Учителско ниво — MERL инструменти</div>
-
-  <div class="irow" onclick="toggle('d1')">
-    <div class="row-label">Пулс чек</div>
-    <div class="cell"></div>
-    <div class="cell"><div class="marker m-amber">ЛА</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-amber">С1</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-amber">С2</div></div>
-    <div class="cell"><div class="marker m-green">FIN</div></div>
+  <div class="tab-content show" id="d1-info">
+    <table><tr><td>Секция 1</td><td>TSES самоефективност (12 въпроса, скала 1–9). Псевдонимен ID.</td></tr><tr><td>Секция 2</td><td>Менторска връзка (5 въпроса, скала 1–5). Напълно анонимна.</td></tr><tr><td>Секция 3</td><td>Принадлежност, намерение, контекст (7 въпроса). Псевдонимен ID.</td></tr><tr><td>Секция 4</td><td>Подкрепа ранкиране + NPS (2 въпроса). Псевдонимен ID.</td></tr></table>
   </div>
-
-  <div class="irow" onclick="toggle('d2')">
-    <div class="row-label">VPS самооценка</div>
-    <div class="cell"></div>
-    <div class="cell"><div class="marker m-purple">BASE</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-purple">PE 1</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-green">PE 2</div></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d3')">
-    <div class="row-label">Наблюдение на урок</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"><div class="marker m-purple">#1</div></div>
-    <div class="cell"><div class="marker m-purple">#2</div></div>
-    <div class="cell" style="grid-column:span 2"><div class="marker m-green">#3</div></div>
-    <div class="cell"></div>
-    <div class="cell"><div class="marker m-purple">#4</div></div>
-    <div class="cell"><div class="marker m-purple">#5</div></div>
-    <div class="cell"><div class="marker m-green m-opt">#6?</div></div>
-    <div class="cell"></div>
-  </div>
-
-  <div class="section">Учителско ниво — програмни структури</div>
-
-  <div class="irow" onclick="toggle('d4')">
-    <div class="row-label">Групова рефлексия</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-blue">#1</div></div>
-    <div class="cell"><div class="marker m-blue">#2</div></div>
-    <div class="cell"><div class="marker m-blue">#3</div></div>
-    <div class="cell" style="grid-column:span 2"><div class="marker m-blue">#4</div></div>
-    <div class="cell"><div class="marker m-blue">#5</div></div>
-    <div class="cell"><div class="marker m-blue">#6</div></div>
-    <div class="cell"><div class="marker m-blue">#7</div></div>
-    <div class="cell"><div class="marker m-blue">#8</div></div>
-    <div class="cell"></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d5')">
-    <div class="row-label">PE разговори</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-peach">PE 1</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-peach">PE 2</div></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d6')">
-    <div class="row-label">Финална рефлексия</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-blue">FIN</div></div>
-  </div>
-
-  <div class="section">Ученическо ниво (един определен клас на учител)</div>
-
-  <div class="irow" onclick="toggle('d7')">
-    <div class="row-label">Четивна грамотност</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-green">PRE</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell2"><div class="wide-marker m-green">POST</div></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d8')">
-    <div class="row-label">СРУ + самоефикасност</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-green">PRE</div></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell2"><div class="wide-marker m-green">POST</div></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d9')">
-    <div class="row-label">7C анкета</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-green">PRE</div></div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell2"><div class="wide-marker m-green">POST</div></div>
-  </div>
-
-  <div class="section">Програмно ниво</div>
-
-  <div class="irow" onclick="toggle('d10')">
-    <div class="row-label">Оперативни KPI</div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-    <div class="cell"><div class="bar-ops"></div></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d11')">
-    <div class="row-label">UCF / TFAll отчет</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-coral">U</div></div>
-  </div>
-
-  <div class="irow" onclick="toggle('d12')">
-    <div class="row-label">Алумни анкета</div>
-    <div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell"><div class="marker m-green">A</div></div>
+  <div class="tab-content" id="d1-items">
+    <h4>Секция 1: Самоефективност (TSES) <span class="scale-tag" style="background:var(--amber-bg);color:var(--amber-t)">скала 1–9</span></h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">1</span>Доколко можете да овладявате предизвикателно поведение?</div>
+      <div class="q-item"><span class="q-num">2</span>Доколко можете да мотивирате ученици със слаб интерес?</div>
+      <div class="q-item"><span class="q-num">3</span>...да накарате учениците да вярват, че могат да се справят?</div>
+      <div class="q-item"><span class="q-num">4</span>...да помогнете на учениците да ценят ученето?</div>
+      <div class="q-item"><span class="q-num">5</span>...да формулирате добри въпроси?</div>
+      <div class="q-item"><span class="q-num">6</span>...да накарате учениците да спазват правилата?</div>
+      <div class="q-item"><span class="q-num">7</span>...да успокоите ученик, който нарушава реда?</div>
+      <div class="q-item"><span class="q-num">8</span>...да изградите система за управление?</div>
+      <div class="q-item"><span class="q-num">9</span>...да прилагате разнообразни стратегии за оценяване?</div>
+      <div class="q-item"><span class="q-num">10</span>...да дадете алтернативно обяснение?</div>
+      <div class="q-item"><span class="q-num">11</span>...да подпомогнете семействата?</div>
+      <div class="q-item"><span class="q-num">12</span>...да прилагате алтернативни стратегии?</div>
+    </div>
+    <h4>Секция 2: Менторска връзка <span class="scale-tag" style="background:var(--purple-bg);color:var(--purple-t)">скала 1–5 · анонимна</span></h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">13</span>Координаторът разбира предизвикателствата ми.</div>
+      <div class="q-item"><span class="q-num">14</span>Чувствам се свободен/а да споделя грешките си.</div>
+      <div class="q-item"><span class="q-num">15</span>Координаторът ме подкрепя да опитвам нови неща.</div>
+      <div class="q-item"><span class="q-num">16</span>Обратната връзка е конкретна и приложима.</div>
+      <div class="q-item"><span class="q-num">17</span>Координаторът показва високи очаквания.</div>
+    </div>
+    <h4>Секция 3: Принадлежност и контекст <span class="scale-tag" style="background:var(--green-bg);color:var(--green-t)">скала 1–5 / 1–10</span></h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">18</span>Част съм от професионална общност.</div>
+      <div class="q-item"><span class="q-num">19</span>Виждам се като учител и след програмата.</div>
+      <div class="q-item"><span class="q-num">20</span>Имам хора, към които мога да се обърна.</div>
+      <div class="q-item"><span class="q-num">21</span>Вероятност да продължа да преподавам? (1–10)</div>
+      <div class="q-item"><span class="q-num">22</span>Чувствам се успешен/а в работата.</div>
+      <div class="q-item"><span class="q-num">23</span>Доволен съм от училището си.</div>
+      <div class="q-item"><span class="q-num">24</span>Директорът/колега ме подкрепя.</div>
+    </div>
+    <h4>Секция 4: Подкрепа + NPS</h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">25</span>Ранкиране на структури за подкрепа по полезност</div>
+      <div class="q-item"><span class="q-num">26</span>NPS: Вероятност да препоръчам Заедно в час? (0–10)</div>
+    </div>
   </div>
 </div>
 
-<!-- Detail panels -->
-<div class="detail" id="d1">
-  <div class="detail-header"><h3>Пулс чек</h3><button class="close-btn" onclick="hide('d1')">затвори ✕</button></div>
-  <div class="meta">26 въпроса · ~8 мин · попълва се от участника</div>
-  <table>
-    <tr><td>Съдържание</td><td>TSES самоефективност (12) · Менторска връзка (5, анонимно) · Принадлежност и контекст (7) · Подкрепа + NPS (2)</td></tr>
-    <tr><td>Честота</td><td>Край на ЛА (август) · Край на Срок 1 (януари) · Край на Срок 2 (май) · Финален сумативен (юни)</td></tr>
-    <tr><td>Решения</td><td>Ранно предупреждение за напускане. Редизайн на подкрепа. NPS → UCF #4.</td></tr>
-  </table>
-</div>
-
-<div class="detail" id="d2">
-  <div class="detail-header"><h3>VPS самооценка по компетентностен модел</h3><button class="close-btn" onclick="hide('d2')">затвори ✕</button></div>
+<!-- DETAIL: VPS -->
+<div class="dp" id="d2">
+  <div class="dp-h"><h3>VPS самооценка по компетентностен модел</h3><button class="cbtn" onclick="hide('d2')">затвори ✕</button></div>
   <div class="meta">Домейни A–D · 14 компетенции · 4 нива · ~20 мин · учител + координатор независимо</div>
-  <table>
-    <tr><td>Baseline</td><td>Август (край на ЛА)</td></tr>
-    <tr><td>PE 1</td><td>Февруари → PE разговор (2 часа)</td></tr>
-    <tr><td>PE 2</td><td>Юни → PE разговор (3 часа)</td></tr>
-    <tr><td>Решения</td><td>Индивидуален план за развитие. Кохортни приоритети. Годишен прогрес.</td></tr>
-  </table>
+  <table><tr><td>Baseline</td><td>Август (край на ЛА)</td></tr><tr><td>PE 1</td><td>Февруари → PE разговор (~2ч)</td></tr><tr><td>PE 2</td><td>Юни → PE разговор (~3ч)</td></tr></table>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(this,'d2-info')">Обзор</button>
+    <button class="tab" onclick="showTab(this,'d2-rubric')">Рубрика (примерни)</button>
+  </div>
+  <div class="tab-content show" id="d2-info">
+    <table><tr><td>Домейн А</td><td>Взискателно преподаване: А1 Планиране · А2 Когнитивно активиране · А3 Формиращо оценяване · А4 Осмисляне · А5 Моделиране</td></tr><tr><td>Домейн Б</td><td>Подкрепяща среда: Б1 Рутини · Б2 Глас и избор · Б3 Позитивни взаимоотношения · Б4 Приобщаване</td></tr><tr><td>Домейн В</td><td>Общностно лидерство (Г2 фокус): В1 Сътрудничество · В2 Системно влияние · В3 Изследване</td></tr><tr><td>Домейн Г</td><td>Вътрешно лидерство: Г1 Цели · Г2 Рефлексия · Г3 Благосъстояние</td></tr></table>
+  </div>
+  <div class="tab-content" id="d2-rubric">
+    <p style="font-size:12px;color:var(--text2);margin-bottom:8px">Пример: А2 — Когнитивно активиране</p>
+    <table class="rubric"><tr class="r-head"><td>Ниво 1</td><td>Ниво 2</td><td>Ниво 3</td><td>Ниво 4</td></tr><tr><td>Задачите изискват предимно възпроизвеждане. Учителят дава отговорите.</td><td>Някои задачи изискват приложение, но учителят насочва бързо към верния отговор.</td><td>Задачите изискват анализ или обосноваване. Учителят задава отворени въпроси и дава време.</td><td>Задачите изискват пренос в нов контекст. Учениците генерират въпроси и хипотези.</td></tr></table>
+  </div>
 </div>
 
-<div class="detail" id="d3">
-  <div class="detail-header"><h3>Наблюдение на урок</h3><button class="close-btn" onclick="hide('d3')">затвори ✕</button></div>
-  <div class="meta">13 индикатора · ICAP моментна проверка · скала 0–3 · ~3 часа на наблюдение</div>
-  <table>
-    <tr><td>Честота</td><td>6 наблюдения (6-то опционално): #1 окт · #2 ное · #3 дек/яну · #4 мар · #5 апр · #6 май (опц.)</td></tr>
-    <tr><td>Решения</td><td>Какво учителят упражнява в следващия цикъл. Данни за PE разговорите. Кохортен напредък.</td></tr>
-  </table>
+<!-- DETAIL: Наблюдение -->
+<div class="dp" id="d3">
+  <div class="dp-h"><h3>Наблюдение на урок</h3><button class="cbtn" onclick="hide('d3')">затвори ✕</button></div>
+  <div class="meta">13 индикатора · ICAP моментна проверка · скала 0–3 · ~3ч на наблюдение</div>
+  <table><tr><td>Честота</td><td>6 наблюдения (6-то опц.): #1 окт · #2 ное · #3 дек/яну · #4 мар · #5 апр · #6 май</td></tr></table>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(this,'d3-info')">Обзор</button>
+    <button class="tab" onclick="showTab(this,'d3-ind')">Индикатори</button>
+    <button class="tab" onclick="showTab(this,'d3-icap')">ICAP</button>
+  </div>
+  <div class="tab-content show" id="d3-info">
+    <table><tr><td>Домейн А</td><td>10 индикатора: цел, връзка с предишно, инструкции, задачи, CfU, адаптация, ОВ, моделиране, видимо мислене, обобщение</td></tr><tr><td>Домейн Б</td><td>4 индикатора: организация, безопасност, разпределено участие, ученическа отговорност</td></tr><tr><td>Скала</td><td>0 = не се наблюдава · 1 = начално · 2 = развиващо се · 3 = компетентно · N/A</td></tr></table>
+  </div>
+  <div class="tab-content" id="d3-ind">
+    <h4>Домейн А: Взискателно преподаване</h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">1</span>Комуникира учебната цел и критерии за успех</div>
+      <div class="q-item"><span class="q-num">2</span>Свързва с предишно знание или приложение</div>
+      <div class="q-item"><span class="q-num">3</span>Инструкции, примери, модели помагат за начало</div>
+      <div class="q-item"><span class="q-num">4</span>Задачите са съгласувани с целта, подходящо ниво</div>
+      <div class="q-item"><span class="q-num">5</span>Събира доказателства за разбиране в ключови моменти</div>
+      <div class="q-item"><span class="q-num">6</span>Адаптира обяснение, подкрепа, темпо или задача</div>
+      <div class="q-item"><span class="q-num">7</span>Обратна връзка конкретна, по критерии, за подобрение</div>
+      <div class="q-item"><span class="q-num">8</span>Моделира как да се работи с учебна информация</div>
+      <div class="q-item"><span class="q-num">9</span>Създава възможности за видимо мислене</div>
+      <div class="q-item"><span class="q-num">10</span>Обобщение: учениците назовават наученото</div>
+    </div>
+    <h4>Домейн Б: Подкрепяща среда</h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">11</span>Организация, преходи, очаквания за поведение</div>
+      <div class="q-item"><span class="q-num">12</span>Участие и грешки без унижение</div>
+      <div class="q-item"><span class="q-num">13</span>Участието е разпределено широко</div>
+      <div class="q-item"><span class="q-num">14</span>Ученици поемат отговорност: избор, роли, рефлексия</div>
+    </div>
+  </div>
+  <div class="tab-content" id="d3-icap">
+    <p style="font-size:12px;color:var(--text2);margin-bottom:8px">Моментна проверка на всеки 5–10 мин: % on-task + доминиращ режим</p>
+    <table class="rubric"><tr class="r-head"><td>Код</td><td>Режим</td><td>Описание</td></tr>
+    <tr><td style="font-weight:600">P</td><td>Възприемащ</td><td>Слушат, гледат, четат, преписват</td></tr>
+    <tr><td style="font-weight:600">A</td><td>Активен</td><td>Решават, попълват, упражняват</td></tr>
+    <tr><td style="font-weight:600">C</td><td>Конструктивен</td><td>Обясняват, аргументират, правят връзка</td></tr>
+    <tr><td style="font-weight:600">I</td><td>Интерактивен</td><td>Надграждат, оспорват, съвместно решават</td></tr></table>
+  </div>
 </div>
 
-<div class="detail" id="d4">
-  <div class="detail-header"><h3>Групова рефлексия</h3><button class="close-btn" onclick="hide('d4')">затвори ✕</button></div>
+<!-- DETAIL: Групова рефлексия -->
+<div class="dp" id="d4">
+  <div class="dp-h"><h3>Групова рефлексия</h3><button class="cbtn" onclick="hide('d4')">затвори ✕</button></div>
   <div class="meta">~1 час · месечна · 8 пъти годишно (сеп–май)</div>
-  <table>
-    <tr><td>Формат</td><td>Групова среща с координатор — споделяне на опит, рефлексия по учебна практика</td></tr>
-  </table>
+  <table><tr><td>Формат</td><td>Групова среща с координатор — споделяне на опит, рефлексия по учебна практика</td></tr></table>
 </div>
 
-<div class="detail" id="d5">
-  <div class="detail-header"><h3>PE разговори (Performance Evaluation)</h3><button class="close-btn" onclick="hide('d5')">затвори ✕</button></div>
-  <div class="meta">PE 1: ~2 часа (февруари) · PE 2: ~3 часа (юни)</div>
-  <table>
-    <tr><td>Основа</td><td>VPS самооценка (учител + координатор независимо) + данни от наблюдения</td></tr>
-    <tr><td>PE 1</td><td>Февруари — средносрочна оценка, коригиране на целите</td></tr>
-    <tr><td>PE 2</td><td>Юни — финална оценка, годишен прогрес, планиране на Година 2</td></tr>
-  </table>
+<!-- DETAIL: PE -->
+<div class="dp" id="d5">
+  <div class="dp-h"><h3>PE разговори (Performance Evaluation)</h3><button class="cbtn" onclick="hide('d5')">затвори ✕</button></div>
+  <div class="meta">PE 1: ~2ч (февруари) · PE 2: ~3ч (юни)</div>
+  <table><tr><td>Основа</td><td>VPS самооценка (учител + координатор независимо) + данни от наблюдения</td></tr><tr><td>PE 1</td><td>Февруари — средносрочна оценка, коригиране на целите</td></tr><tr><td>PE 2</td><td>Юни — финална оценка, годишен прогрес, планиране на Година 2</td></tr></table>
 </div>
 
-<div class="detail" id="d6">
-  <div class="detail-header"><h3>Финална рефлексия</h3><button class="close-btn" onclick="hide('d6')">затвори ✕</button></div>
+<!-- DETAIL: Финална рефлексия -->
+<div class="dp" id="d6f">
+  <div class="dp-h"><h3>Финална рефлексия</h3><button class="cbtn" onclick="hide('d6f')">затвори ✕</button></div>
   <div class="meta">~8 часа · юни · еднократно</div>
-  <table>
-    <tr><td>Формат</td><td>Цялостна рефлексия за годината — индивидуална и групова</td></tr>
-  </table>
+  <table><tr><td>Формат</td><td>Цялостна рефлексия за годината — индивидуална и групова</td></tr></table>
 </div>
 
-<div class="detail" id="d7">
-  <div class="detail-header"><h3>Четивна грамотност — стандартизирани задачи</h3><button class="close-btn" onclick="hide('d7')">затвори ✕</button></div>
+<!-- DETAIL: Четивна грамотност -->
+<div class="dp" id="d7">
+  <div class="dp-h"><h3>Четивна грамотност — стандартизирани задачи</h3><button class="cbtn" onclick="hide('d7')">затвори ✕</button></div>
   <div class="meta">По класове (5, 6, 7 клас) · ~30 мин · отделен учебен час</div>
-  <table>
-    <tr><td>Дизайн</td><td>PRE (септември) – POST (май–юни). Един определен клас на учител.</td></tr>
-    <tr><td>UCF</td><td>Индикатор #1: стандартизиран ефект размер на академична оценка</td></tr>
-    <tr><td>Обхват</td><td>Учители по БЕЛ и хуманитарни. За останалите: училищни оценки + НВО.</td></tr>
-  </table>
+  <table><tr><td>Дизайн</td><td>PRE (септември) – POST (май–юни). Един определен клас на учител.</td></tr><tr><td>UCF</td><td>Индикатор #1: стандартизиран ефект размер на академична оценка</td></tr><tr><td>Обхват</td><td>Учители по БЕЛ и хуманитарни. За останалите: училищни оценки + НВО.</td></tr></table>
 </div>
 
-<div class="detail" id="d8">
-  <div class="detail-header"><h3>СРУ + самоефикасност — ученическа анкета</h3><button class="close-btn" onclick="hide('d8')">затвори ✕</button></div>
+<!-- DETAIL: СРУ -->
+<div class="dp" id="d8">
+  <div class="dp-h"><h3>СРУ + самоефикасност — ученическа анкета</h3><button class="cbtn" onclick="hide('d8')">затвори ✕</button></div>
   <div class="meta">~34 въпроса · ~12 мин · попълва се от учениците</div>
-  <table>
-    <tr><td>Дизайн</td><td>PRE (септември) – POST (май–юни). Същият определен клас.</td></tr>
-    <tr><td>Скали</td><td>Метакогнитивни стратегии (12) · Сътрудничество (3) · Декодиране/запаметяване (3) · Търсене/организиране (4) · Задълбочено разбиране (7) · Самоефикасност (~5)</td></tr>
-    <tr><td>UCF</td><td>Индикатор #2: стандартизиран ефект размер на неакадемична оценка</td></tr>
-  </table>
+  <table><tr><td>Дизайн</td><td>PRE (септември) – POST (май–юни). Същият определен клас.</td></tr><tr><td>UCF</td><td>Индикатор #2: стандартизиран ефект размер на неакадемична оценка</td></tr></table>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(this,'d8-info')">Скали</button>
+    <button class="tab" onclick="showTab(this,'d8-items')">Примерни въпроси</button>
+  </div>
+  <div class="tab-content show" id="d8-info">
+    <table><tr><td>Метакогнитивни</td><td>12 въпроса: мониторинг, проверка, самооценка на разбирането</td></tr><tr><td>Задълбочено</td><td>7 въпроса: свързване на ново с предишно, обобщаване, трансфер</td></tr><tr><td>Търсене/орг.</td><td>4 въпроса: подчертаване, записки, планиране</td></tr><tr><td>Декодиране</td><td>3 въпроса: запаметяване, повторение, припомняне</td></tr><tr><td>Сътрудничество</td><td>3 въпроса: обсъждане, съвместна работа, обяснение на съученик</td></tr><tr><td>Самоефикасност</td><td>~5 въпроса</td></tr></table>
+  </div>
+  <div class="tab-content" id="d8-items">
+    <h4>Метакогнитивни стратегии (примери)</h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">1</span>Когато уча, проверявам дали съм запомнил/а най-важните неща.</div>
+      <div class="q-item"><span class="q-num">2</span>Когато се проваля, се опитвам да уча от грешките си.</div>
+      <div class="q-item"><span class="q-num">3</span>Обмислям няколко начина и избирам най-подходящия.</div>
+      <div class="q-item"><span class="q-num">4</span>Когато приключа, се питам дали съм научил/а каквото исках.</div>
+    </div>
+    <h4>Сътрудничество (примери)</h4>
+    <div class="q-list">
+      <div class="q-item"><span class="q-num">1</span>Отделям време да обсъдя материала със съученици.</div>
+      <div class="q-item"><span class="q-num">2</span>Стремя се да работя с други за поставените задачи.</div>
+    </div>
+  </div>
 </div>
 
-<div class="detail" id="d9">
-  <div class="detail-header"><h3>7C ученическа анкета</h3><button class="close-btn" onclick="hide('d9')">затвори ✕</button></div>
+<!-- DETAIL: 7C -->
+<div class="dp" id="d9">
+  <div class="dp-h"><h3>7C ученическа анкета</h3><button class="cbtn" onclick="hide('d9')">затвори ✕</button></div>
   <div class="meta">Всички 7 субскали · ~35 въпроса · ~10 мин · попълва се от учениците</div>
-  <table>
-    <tr><td>Дизайн</td><td>PRE (ноември) – POST (май–юни). Същият определен клас.</td></tr>
-    <tr><td>Субскали</td><td>Challenge · Clarify · Consolidate · Care · Captivate · Control · Confer</td></tr>
-    <tr><td>UCF</td><td>Индикатор #3: % благоприятно ученическо възприятие + ефект размер по кохорта</td></tr>
-  </table>
+  <table><tr><td>Дизайн</td><td>PRE (ноември) – POST (май–юни). Същият определен клас.</td></tr><tr><td>UCF</td><td>Индикатор #3: % благоприятно възприятие + ефект размер по кохорта</td></tr></table>
+  <div class="tabs">
+    <button class="tab active" onclick="showTab(this,'d9-info')">Субскали</button>
+    <button class="tab" onclick="showTab(this,'d9-items')">Примерни въпроси</button>
+  </div>
+  <div class="tab-content show" id="d9-info">
+    <table><tr><td>Challenge</td><td>Строги очаквания, обясняване на мисленето, пълно усилие, корекция на грешки</td></tr><tr><td>Clarify</td><td>Обяснява по друг начин, знае кога не разбираме, ясно обяснение</td></tr><tr><td>Consolidate</td><td>Обобщава наученото, проверява разбирането, полезни коментари</td></tr><tr><td>Captivate</td><td>Прави ученето приятно, задържа вниманието, интересни уроци</td></tr><tr><td>Control</td><td>Ред, време, on-task условия</td></tr><tr><td>Confer</td><td>Цени мнението ни, споделяме идеи, уважава предложенията</td></tr><tr><td>Care</td><td>Грижи се, знае какво ни безпокои, разбира чувствата ни</td></tr></table>
+  </div>
+  <div class="tab-content" id="d9-items">
+    <h4>Когнитивна ангажираност (Challenge)</h4>
+    <div class="q-list">
+      <div class="q-item">My teacher wants me to explain my answers — why I think what I think.</div>
+      <div class="q-item">In this class, we learn to correct our mistakes.</div>
+      <div class="q-item">In this class, we learn a lot almost every day.</div>
+    </div>
+    <h4>Емоционална ангажираност (Captivate)</h4>
+    <div class="q-list">
+      <div class="q-item">My teacher makes learning enjoyable.</div>
+      <div class="q-item">My teacher makes lessons interesting.</div>
+      <div class="q-item">This class does not keep my attention — I get bored. (R)</div>
+    </div>
+  </div>
 </div>
 
-<div class="detail" id="d10">
-  <div class="detail-header"><h3>Оперативни KPI</h3><button class="close-btn" onclick="hide('d10')">затвори ✕</button></div>
+<!-- DETAIL: KPI -->
+<div class="dp" id="d10">
+  <div class="dp-h"><h3>Оперативни KPI</h3><button class="cbtn" onclick="hide('d10')">затвори ✕</button></div>
   <div class="meta">Непрекъснато · жълт/червен праг за всеки индикатор</div>
+  <table><tr><td>Месечно</td><td>Присъственост, watch list</td></tr><tr><td>Тримесечно</td><td>Retention, бюджетно отклонение, cost per participant</td></tr><tr><td>Годишно</td><td>Кандидатури, ЛИ→Срок 1 преход, completion rate, % училища под 67-и персентил</td></tr></table>
+</div>
+
+<!-- DETAIL: Програмен анализ / Stepback -->
+<div class="dp" id="d11">
+  <div class="dp-h"><h3>Програмен анализ (Stepback)</h3><button class="cbtn" onclick="hide('d11')">затвори ✕</button></div>
+  <div class="meta">Два пъти годишно · програмен екип + MERL</div>
   <table>
-    <tr><td>Месечно</td><td>Присъственост, watch list</td></tr>
-    <tr><td>Тримесечно</td><td>Retention, бюджетно отклонение, cost per participant</td></tr>
-    <tr><td>Годишно</td><td>Кандидатури, ЛИ→Срок 1 преход, completion rate, % училища под 67-и персентил</td></tr>
+    <tr><td>SB 1</td><td>Февруари (междинен stepback). Данни: Пулс чек ЛА + С1, VPS baseline + PE 1, наблюдения #1–#3, оперативни KPI. Решения: коригиране на програмен дизайн, coaching приоритети за Срок 2, идентифициране на системни проблеми.</td></tr>
+    <tr><td>SB 2</td><td>Юни (финален stepback). Данни: всички PRE/POST резултати, Пулс чек С2 (+ TFAll), VPS PE 2, наблюдения #1–#6, KPIs. Решения: годишни изводи, UCF отчет, редизайн за Година 2.</td></tr>
+    <tr><td>Кой участва</td><td>Програмен ръководител, MERL лийд, координатори, (при SB 2: + външен оценител ако е наличен)</td></tr>
   </table>
 </div>
 
-<div class="detail" id="d11">
-  <div class="detail-header"><h3>UCF / TFAll годишен отчет — 6 индикатора</h3><button class="close-btn" onclick="hide('d11')">затвори ✕</button></div>
+<!-- DETAIL: UCF -->
+<div class="dp" id="d12">
+  <div class="dp-h"><h3>UCF / TFAll годишен отчет — 6 индикатора</h3><button class="cbtn" onclick="hide('d12')">затвори ✕</button></div>
   <div class="meta">Подава се юни</div>
-  <table>
-    <tr><td>#1 Академичен</td><td>Ефект размер: четивна грамотност PRE→POST</td></tr>
-    <tr><td>#2 Неакадемичен</td><td>Ефект размер: СРУ + самоефикасност PRE→POST</td></tr>
-    <tr><td>#3 Преподаване</td><td>% благоприятно възприятие: 7C анкета</td></tr>
-    <tr><td>#4 Програма</td><td>NPS от Пулс чек</td></tr>
-    <tr><td>#5 Алумни</td><td>% алумни в образованието</td></tr>
-    <tr><td>#6 Общност</td><td>Планирано за Година 2</td></tr>
-  </table>
+  <table><tr><td>#1 Академичен</td><td>Ефект размер: четивна грамотност PRE→POST</td></tr><tr><td>#2 Неакадемичен</td><td>Ефект размер: СРУ + самоефикасност PRE→POST</td></tr><tr><td>#3 Преподаване</td><td>% благоприятно възприятие: 7C анкета</td></tr><tr><td>#4 Програма</td><td>NPS от Пулс чек</td></tr><tr><td>#5 Алумни</td><td>% алумни в образованието</td></tr><tr><td>#6 Общност</td><td>Планирано за Година 2</td></tr></table>
 </div>
 
-<div class="detail" id="d12">
-  <div class="detail-header"><h3>Алумни анкета</h3><button class="close-btn" onclick="hide('d12')">затвори ✕</button></div>
+<!-- DETAIL: Алумни -->
+<div class="dp" id="d13">
+  <div class="dp-h"><h3>Алумни анкета</h3><button class="cbtn" onclick="hide('d13')">затвори ✕</button></div>
   <div class="meta">Годишна · всички завършили програмата</div>
-  <table>
-    <tr><td>Съдържание</td><td>Професионална траектория, работа в образованието, системно влияние, ангажираност</td></tr>
-    <tr><td>UCF</td><td>Индикатор #5: % алумни в образование или мисия-свързана работа</td></tr>
-  </table>
+  <table><tr><td>Съдържание</td><td>Професионална траектория, работа в образованието, системно влияние, ангажираност</td></tr><tr><td>UCF</td><td>Индикатор #5: % алумни в образование или мисия-свързана работа</td></tr></table>
 </div>
 
 <div class="footer">
-  <strong>Ученически прозорци:</strong> PRE септември: четивна грамотност (1 час) + СРУ анкета (1 час). PRE ноември: 7C анкета (1 час). POST май–юни: всички заедно (2–3 часа). Конкретният момент зависи от възрастта на учениците и училищния календар.
+  <strong>Ученически прозорци:</strong> PRE септември: четивна грамотност (1 час) + СРУ анкета (1 час). PRE ноември: 7C анкета (1 час). POST май–юни: всички заедно (2–3 часа). Конкретният момент зависи от възрастта и училищния календар.
   <br><strong>Определен клас:</strong> Учителят избира един клас в началото на Година 1 и не го променя.
   <br><strong>PE разговори:</strong> Февруари (PE 1, ~2ч) и юни (PE 2, ~3ч). Базирани на VPS самооценка + наблюдения.
-  <br><strong>Наблюдения:</strong> 6 (шестото опционално). ~3 часа всяко (наблюдение + обратна връзка).
+  <br><strong>Наблюдения:</strong> 6 (шестото опционално). ~3 часа всяко.
   <br><strong>Групови рефлексии:</strong> 8 пъти годишно (сеп–май), ~1 час. + Финална рефлексия юни (~8 часа).
+  <br><strong>Програмен анализ:</strong> Междинен stepback (февруари) и финален stepback (юни).
 </div>
 
 </div>
-
 <script>
-function toggle(id) {
-  const el = document.getElementById(id);
-  const wasOpen = el.classList.contains('show');
-  document.querySelectorAll('.detail').forEach(d => d.classList.remove('show'));
-  if (!wasOpen) {
-    el.classList.add('show');
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-}
-function hide(id) {
-  document.getElementById(id).classList.remove('show');
-}
+function toggle(id){const el=document.getElementById(id);const w=el.classList.contains('show');document.querySelectorAll('.dp').forEach(d=>d.classList.remove('show'));if(!w){el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'})}}
+function hide(id){document.getElementById(id).classList.remove('show')}
+function showTab(btn,id){const dp=btn.closest('.dp');dp.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));dp.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('show'));btn.classList.add('active');document.getElementById(id).classList.add('show')}
 </script>
 </body>
 </html>
